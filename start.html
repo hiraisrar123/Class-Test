@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Survey</title>
+  <style>
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      color: #333;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 3rem;
+      text-align: center;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Button styling */
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #4e54c8;
+    }
+
+    .btn-primary:hover {
+      background-color: #6f71f7;
+      transform: scale(1.05);
+    }
+
+    .btn-lg {
+      font-size: 1.5rem;
+      padding: 18px 40px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <button onclick="goToSignup()" class="btn btn-primary">
+    Start Survey
+  </button>
+  <script>
+
+    function goToSignup() {
+      window.location.href = "signup.html";
+    }
+  </script>
+
+</body>
+</html>
