@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         
           alert('Login successful');
-          window.location.href = 'index.html'; // ✅ CORRECT PATH
+          window.location.href = '../index.html';
         });
         
         
