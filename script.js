@@ -3,35 +3,38 @@ const supabaseUrl = "https://zmdhtjgucjllannxjnhv.supabase.co";
 const supabaseKey = 'sb_publishable_fv6KS1qad9LXi0CIApEIEQ_EN22A_B7';
 const client = supabase.createClient(supabaseUrl, supabaseKey);
 
-const registerForm = document.getElementById('registerForm');
-const semail = document.getElementById('signupEmail');
-const spassword = document.getElementById('signupPassword');
-const username = document.getElementById('username');
+document.addEventListener('DOMContentLoaded', () => {
+  const registerForm = document.getElementById('registerForm');
+  if (!registerForm) return; // agar form nahi hai to exit
 
-registerForm.addEventListener('submit', async function (e) {
-  e.preventDefault();
+  registerForm.addEventListener('submit', async function(e) {
+      e.preventDefault(); // error nahi aayega
 
-  if (!semail.value || !spassword.value || !username.value) {
-    alert('Please fill all fields');
-    return;
-  }
+      const semail = document.getElementById('signupEmail').value;
+      const spassword = document.getElementById('signupPassword').value;
+      const username = document.getElementById('username').value;
 
-  const { error } = await client.auth.signUp({
-    email: semail.value,
-    password: spassword.value,
-    options: {
-      data: { name: username.value }
-    }
+      if (!semail || !spassword || !username) {
+          alert('Please fill all fields');
+          return;
+      }
+
+      const { error } = await client.auth.signUp({
+          email: semail,
+          password: spassword,
+          options: { data: { name: username } }
+      });
+
+      if (error) {
+          alert(error.message);
+          return;
+      }
+
+      alert('Signup successful! Check your email.');
+      window.location.href = 'login.html';
   });
-
-  if (error) {
-    alert(error.message);
-    return;
-  }
-
-  alert('Signup successful! Check your email.');
-  window.location.href = 'login.html';
 });
+
 
 
 
@@ -81,7 +84,7 @@ registerForm.addEventListener('submit', async function (e) {
           }
         
           alert('Login successful');
-          window.location.href = '../index.html'; // ✅ CORRECT PATH
+          window.location.href = 'index.html'; // ✅ CORRECT PATH
         });
         
         
